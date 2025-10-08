@@ -1,0 +1,5 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+rdkit-pypi==2022.9.5
+pubchempy==1.0.4
+requests==2.32.3
