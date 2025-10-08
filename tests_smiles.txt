@@ -1,0 +1,20 @@
+caffeine
+acetaminophen
+ibuprofen
+aspirin
+pyridine
+imidazole
+benzyl chloride
+tert-butyl bromide
+nitrate ion
+sulfate
+acetate
+ethanol
+isopropanol
+cyclohexane
+benzene
+toluene
+cis-1,2-dichloroethene
+trans-1,2-dichloroethene
+acetic acid
+CC(=O)Oc1ccccc1C(=O)O
