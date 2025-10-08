@@ -117,9 +117,19 @@ def render_smiles(
     return data.encode("utf-8") if fmt == "svg" else data
 
 # ---------- routes ----------
-@app.get("/")
+@app.get("/", response_class=HTMLResponse)
 def root():
-    return {"status": "ok", "version": APP_VERSION, "try": ["/docs", "/ui"], "endpoint": "POST /draw"}
+    return """
+<!doctype html>
+<html>
+  <body style="font-family: system-ui; margin:40px auto; max-width:720px; line-height:1.5;">
+    <h1>ChemCheck</h1>
+    <p>Instantly generate clean 2D chemical structures from names or SMILES.</p>
+    <p><a href="/ui" style="display:inline-block;padding:10px 16px;border:1px solid #222;border-radius:8px;text-decoration:none;">Launch Validator →</a></p>
+    <p><small>Free during beta • For learning/validation only • Built by an MSU student</small></p>
+  </body>
+</html>
+"""
 
 @app.get("/__status", response_class=PlainTextResponse)
 def status():
