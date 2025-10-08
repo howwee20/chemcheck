@@ -173,7 +173,7 @@ def ui():
 <!doctype html>
 <html>
   <body style="font-family: system-ui; max-width:760px; margin:40px auto;">
-    <h2>ChemCheck</h2>
+    <h1>ChemCheck</h1>
     <form id="f" style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
       <input name="name_or_smiles" placeholder="Name or SMILES" style="flex:1; min-width:360px; padding:8px;" />
       <select name="fmt"><option>png</option><option>svg</option></select>
@@ -195,7 +195,7 @@ def ui():
         out.innerHTML='Rendering...'; dl.style.display='none';
         const fd=new FormData(f);
         const resp=await fetch('/draw',{method:'POST',body:fd});
-        if(!resp.ok){ out.textContent='Error: '+(await resp.text()); return; }
+        if(!resp.ok){ out.innerHTML='<div style="color:#b00;">'+ await resp.text() +'</div>'; return; }
         const blob=await resp.blob();
         const url=URL.createObjectURL(blob);
         const fmt=fd.get('fmt')||'png';
@@ -205,6 +205,7 @@ def ui():
         save.href=url; save.download=`chemcheck.${fmt}`; dl.style.display='block';
       };
     </script>
+    <small>For learning/validation only. Always do your own work.</small>
   </body>
 </html>
 """
